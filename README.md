@@ -1,7 +1,7 @@
 # Welcome to Wanbang Computer Club!
 > This is the repository that has study resources from Wanbang Computer Club
 
-![Website home](./Website home.png)
+<img src="./Website home.png", style="width:100%;">
 ## How to review?
 1. There are slides that were used in the class
 
