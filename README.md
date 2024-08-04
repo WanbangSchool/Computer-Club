@@ -1,8 +1,6 @@
 # Welcome to Wanbang Computer Club!
 > This is the repository that has study resources from Wanbang Computer Club
 
-# How to Wanbang Computer Club?
-
 ## How to review?
 1. There are slides that were used in the class
 
