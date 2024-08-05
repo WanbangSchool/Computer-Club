@@ -1,13 +1,11 @@
-# Welcome to Wanbang Computer Club!
+# Welcome to Wanbang Computer Club
 > This is the repository that has study resources from Wanbang Computer Club
 
 ![home](./website_home.png)
-## How to review?
-1. There are slides that were used in the class
 
 ## How to contribute?
-1. You can contribute whatever you want!
-2. Folk this repository and send us pull request!
+1. You can contribute whatever you want
+2. Folk this repository and send us a pull request
 
 ## How to add problems?
 1. Make a markdown file with this format. (Please refer [this](http://144.202.104.40/problem/0001))
