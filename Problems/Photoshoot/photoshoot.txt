@@ -1,0 +1,6 @@
+> - Title:
+> - Description:Cloud dragon is lining up his N cows (2≤N≤10³), numbered 1.. N, for a photoshoot. Cloud dragon initially planned for the i-th cow from the left to be the cow numbered ai and wrote down the permutation a1, a2, …., aN on a sheet of paper. Unfortunately, that paper was recently stolen by the baby dragon!  Luckily, it might still be possible for Cloud Dragon to recover the permutation that he originally wrote down. Before the sheet was stolen, Bessie recorded the sequence b1, b2, …, b(N-1) that satisfies bi=ai+a(i+1) for each 1≤i<N.   Based on the baby dragon's information, help the cloud dragon restore the "lexicographically minimum" permutation y that could have produced b. A permutation x is lexicographically smaller than a permutation if for some j, xi = yi for all i<j and xj<yj (in other words, the two permutations are identical up to a certain point, at which x is smaller than y). It is guaranteed that at least one such a exists.
+> - Time Limit:
+> - Memory Limit:
+> - Level:
+> - Tags (Algorithm): 
