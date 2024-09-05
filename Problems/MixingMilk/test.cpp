@@ -1,38 +1,33 @@
+#include <algorithm>
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
+const int N = 3;  // The number of buckets (which is 3)
+const int TURN_NUM = 100;
+
 int main() {
-    int c1, m1, c2, m2, c3, m3;
 
-    // Read input: capacities and milk amounts for the three buckets
-    cin >> c1 >> m1;
-    cin >> c2 >> m2;
-    cin >> c3 >> m3;
+	// capacity[i] is the maximum capacity of bucket i
+	vector<int> capacity(N);
+	// milk[i] is the current amount of milk in bucket i
+	vector<int> milk(N);
+	for (int i = 0; i < N; i++) { scanf("%d %d", &capacity[i], &milk[i]); }
 
-    // Perform 100 pours in a cyclic manner
-    for (int i = 0; i < 100; i++) {
-        if (i % 3 == 0) {
-            // Pour from bucket 1 to bucket 2
-            int pour = min(m1, c2 - m2);
-            m1 -= pour;
-            m2 += pour;
-        } else if (i % 3 == 1) {
-            // Pour from bucket 2 to bucket 3
-            int pour = min(m2, c3 - m3);
-            m2 -= pour;
-            m3 += pour;
-        } else {
-            // Pour from bucket 3 to bucket 1
-            int pour = min(m3, c1 - m1);
-            m3 -= pour;
-            m1 += pour;
-        }
-    }
+	for (int i = 0; i < TURN_NUM; i++) {
+		int bucket1 = i % N;
+		int bucket2 = (i + 1) % N;
 
-    // Output the final amount of milk in each bucket
-    cout << m1 << endl;
-    cout << m2 << endl;
-    cout << m3 << endl;
+		/*
+		 * The amount of milk to pour is the minimum of the remaining milk
+		 * in bucket 1 and the available capacity of bucket 2
+		 */
+		int amt = min(milk[bucket1], capacity[bucket2] - milk[bucket2]);
 
-    return 0;
+		milk[bucket1] -= amt;
+		milk[bucket2] += amt;
+	}
+
+	for (int m : milk) { cout << m << '\n'; }
 }
