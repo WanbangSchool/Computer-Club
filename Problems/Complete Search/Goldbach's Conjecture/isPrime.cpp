@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-/*bool prime(int n)
+bool prime(int n)
 {
     if (n < 2)
         return false;
@@ -12,8 +12,8 @@ using namespace std;
     }
 
     return true;
-} */
-
+} 
+/*
 int main()
 {
     vector<bool> sieve = {0};
@@ -25,3 +25,4 @@ int main()
         }
     }
 }
+*/
