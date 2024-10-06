@@ -12,51 +12,39 @@ int main() {
 
     while (t--) {
         int n, k;
-        cin >> n >> k;  // 퀘스트 수와 최대 완료 가능한 퀘스트 수 입력
+        cin >> n >> k;  // 퀘스트 수와 최대 퀘스트 완료 횟수 입력
 
         vector<int> a(n), b(n);
+        for (int i = 0; i < n; ++i) cin >> a[i];  // 첫 번째 완료 보상 입력
+        for (int i = 0; i < n; ++i) cin >> b[i];  // 이후 완료 보상 입력
 
-        // 배열 a와 b 입력 받기
-        for (int i = 0; i < n; i++) cin >> a[i];  // 첫 번째 완료 보상
-        for (int i = 0; i < n; i++) cin >> b[i];  // 이후 완료 보상
-
-        // 각 퀘스트의 첫 번째 완료 보상과 이후 완료 보상을 저장할 벡터
-        vector<pair<int, int>> quests;
-
-        // 각 퀘스트의 보상 정보를 벡터에 추가
-        for (int i = 0; i < n; i++) {
-            quests.push_back({a[i], b[i]});
-        }
-
-        // 첫 번째 완료 보상을 기준으로 퀘스트를 정렬
-        sort(quests.begin(), quests.end());
-
-        // 총 경험치 계산을 위한 변수
+        // 모든 퀘스트의 첫 번째 완료 시 얻는 보상을 저장
         long long total_experience = 0;
-
-        // 이후 완료 보상을 저장할 벡터
-        vector<int> completions;
-
-        // 먼저 각 퀘스트를 최소 한 번씩 완료
-        for (int i = 0; i < n && i < k; i++) {
-            total_experience += quests[i].first;  // 첫 번째 완료 보상 추가
-            completions.push_back(quests[i].second);  // 이후 완료 보상 저장
+        for (int i = 0; i < n; ++i) {
+            total_experience += a[i];  // 모든 퀘스트를 첫 번째로 완료
         }
 
-        // 이후 완료 보상을 내림차순으로 정렬
-        sort(completions.rbegin(), completions.rend());
+        // 남은 k-n 번 만큼의 퀘스트를 추가로 완료할 수 있는 횟수
+        int remaining_quests = k - n;
 
-        // 남은 횟수만큼 이후 완료 보상으로 퀘스트 완료
-        for (int i = 0; i < completions.size() && i + n < k; i++) {
-            total_experience += completions[i];
+        // 이후 완료 보상 b[i]를 큰 순서대로 처리하기 위해 정렬
+        vector<int> extra_rewards;
+        for (int i = 0; i < n; ++i) {
+            extra_rewards.push_back(b[i]);  // 이후 보상 저장
+        }
+        sort(extra_rewards.rbegin(), extra_rewards.rend());  // 보상이 큰 순서대로 정렬
+
+        // 남은 퀘스트 횟수만큼 이후 보상을 최대화하는 방향으로 처리
+        for (int i = 0; i < remaining_quests && i < n; ++i) {
+            total_experience += extra_rewards[i];  // 최대 보상을 추가
         }
 
-        // 현재 테스트 케이스의 결과 출력
-        cout << total_experience << endl;
+        cout << total_experience << endl;  // 결과 출력
     }
 
     return 0;
 }
+
 
 
 
