@@ -40,6 +40,10 @@ void solve() {
     cout << max_experience << endl;  // 최대 경험치 출력
 }
 
+
+
+
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
